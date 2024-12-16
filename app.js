@@ -18,7 +18,31 @@ function getLayout(msg = "How many squares per side for the grid? (Min 2; Max 10
     return layout;
 }
 
+function createSquares(n, row) {
+    for (let index = 0; index < n; index++) {
+        const square = document.createElement("div");
+        square.classList.add("square");
+        square.style.width = `100%`;
+        row.appendChild(square);
+    }
+}
+
+function createRow(nSquares) {
+    const row = document.createElement("div");
+    row.classList.add("row");
+    createSquares(nSquares, row);
+    divContainer.appendChild(row);
+}
+
+function createGrid(nSquaresPerSide) {
+    divContainer.innerHTML = "";
+    for (let index = 0; index < nSquaresPerSide; index++) {
+        createRow(nSquaresPerSide);
+    }
+}
+
 btn.addEventListener("click", () => {
     let layout = getLayout();
     console.log(layout);
+    createGrid(layout);
 })
