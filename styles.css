@@ -8,7 +8,7 @@
 }
 
 * {
-    /* border: 1px solid red; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -21,6 +21,14 @@ button {
     margin: 10px auto;
     padding: 10px 16px;
     border-radius: 10px;
+    border: 3px outset black;
+    background-color: antiquewhite;
+}
+
+button:hover {
+    border: 3px inset black;
+    background-color: rgb(254, 246, 237);
+    cursor: pointer;
 }
 
 #container {
