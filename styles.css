@@ -12,10 +12,10 @@
 }
 
 body {
-    height: 99vh;
     padding: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 button {
@@ -33,10 +33,12 @@ button:hover {
 }
 
 #container {
-    height: 100%;
+    height: 500px;
+    width: 500px;
     display: flex;
     flex: auto;
     flex-direction: column;
+    margin: 50px auto;
     /* border: 1px solid blue; */
 }
 

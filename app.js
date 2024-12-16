@@ -66,8 +66,20 @@ btn.addEventListener("click", () => {
     createGrid(layout);
 })
 
+let mouseDown = 0;
+divContainer.onmousedown = (event) => {
+    event.preventDefault();
+    ++mouseDown;
+}
+divContainer.onmouseup = (event) => {
+    event.preventDefault();
+    --mouseDown;
+}
+
 divContainer.addEventListener("mouseover", (event) => {
+    event.preventDefault();
     if (event.target.id === "container") return;
+    if (mouseDown == 0) return;
     changeBackgroundColor(event.target);
     increaseOpacity(event.target);
 })
