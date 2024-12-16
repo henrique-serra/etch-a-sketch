@@ -37,7 +37,7 @@ button:hover {
     display: flex;
     flex: auto;
     flex-direction: column;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 .row {
