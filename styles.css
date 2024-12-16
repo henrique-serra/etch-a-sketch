@@ -39,7 +39,6 @@ button:hover {
     flex: auto;
     flex-direction: column;
     margin: 50px auto;
-    /* border: 1px solid blue; */
 }
 
 .row {
