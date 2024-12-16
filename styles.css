@@ -45,7 +45,3 @@ button:hover {
     flex: auto;
     height: 100%;
 }
-
-.square {
-    border: 1px solid red;
-}

@@ -15,10 +15,32 @@ function getLayout(msg = "How many squares per side for the grid? (Min 2; Max 10
     return layout
 }
 
+function generateRandomRgb() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function changeBackgroundColor(square) {
+    const randomColor = generateRandomRgb();
+    square.style.backgroundColor = randomColor;
+}
+
+function increaseOpacity(square) {
+    let opacity = +square.style.opacity;
+    if (!opacity) {
+        opacity = 0.1;
+    } else {
+        opacity = opacity == 1 ? 1 : opacity + 0.1;
+    };
+    square.style.opacity = opacity;
+    return opacity;
+}
+
 function createSquares(n, row) {
     for (let index = 0; index < n; index++) {
         const square = document.createElement("div");
-        square.classList.add("square");
         square.style.width = `100%`;
         row.appendChild(square);
     }
@@ -36,9 +58,16 @@ function createGrid(nSquaresPerSide) {
     for (let index = 0; index < nSquaresPerSide; index++) {
         createRow(nSquaresPerSide);
     }
+    divContainer.style.border = "1px solid black";
 }
 
 btn.addEventListener("click", () => {
     let layout = getLayout();
     createGrid(layout);
+})
+
+divContainer.addEventListener("mouseover", (event) => {
+    if (event.target.id === "container") return;
+    changeBackgroundColor(event.target);
+    increaseOpacity(event.target);
 })
